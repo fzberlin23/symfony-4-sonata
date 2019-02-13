@@ -20,7 +20,7 @@ docker + docker-compose
 git clone git@github.com:fzberlin23/symfony-4.2-sonata.git .
 Modify docker-compose.yml and set the "volumes" path appropriately
 docker-compose up -d
-docker exec -it symfony4 bash
+docker exec -it symfony4-apache bash
 composer install
 Visit http://localhost:8001
 ```
