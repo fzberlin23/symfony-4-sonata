@@ -29,4 +29,5 @@ Visit http://localhost:8001
 composer create-project symfony/website-skeleton .
 composer require symfony/apache-pack
 composer require sonata-project/admin-bundle
+composer require sonata-project/doctrine-orm-admin-bundle
 ```
