@@ -7,4 +7,4 @@ services:
     ports:
       - 8001:80
     volumes:
-      - /Users/fabian/projects/symfony-4.2-sonata/public:/var/www/html
+      - /Users/fabian/projects/symfony-4.2-sonata/public:/var/www/html:cached
