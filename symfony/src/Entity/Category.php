@@ -24,6 +24,11 @@
         private $name;
 
         /**
+         * @ORM\Column(name="description", type="text")
+         */
+        private $description;
+
+        /**
          * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
          */
         private $blogPosts;
@@ -44,6 +49,14 @@
 
         public function setName($name) {
             $this->name = $name;
+        }
+
+        public function getDescription() {
+            return $this->description;
+        }
+
+        public function setDescription($description) {
+            $this->description = $description;
         }
 
     }
