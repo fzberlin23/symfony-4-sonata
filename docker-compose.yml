@@ -1,10 +1,35 @@
 version: "3"
 services:
   web:
-    build: .
-    image: symfony4-image
-    container_name: symfony4
+    build:
+      context: .
+      dockerfile: docker/apache/Dockerfile
+    image: symfony4-apache-image
+    container_name: symfony4-apache
     ports:
       - 8001:80
     volumes:
-      - /Users/fabian/projects/symfony-4.2-sonata/public:/var/www/html:cached
+      - /Users/fabian/projects/symfony-4.2-sonata/symfony:/var/www/html:cached
+    networks:
+      - symfony
+
+  db:
+    build:
+      context: .
+      dockerfile: docker/mysql/Dockerfile
+    image: symfony4-mysql-image
+    container_name: symfony4-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - symfony_db:/var/lib/mysql:cached
+    ports:
+      - 3311:3306
+    networks:
+      - symfony
+
+volumes:
+  symfony_db:
+
+networks:
+  symfony:
