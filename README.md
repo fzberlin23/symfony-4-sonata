@@ -22,3 +22,11 @@ Modify docker-compose.yml and set the "volumes" path appropriately
 docker-compose up -d
 Visit http://localhost:8001
 ```
+
+### Installing Symfony 4 + Sonata admin bundle from scratch
+
+```
+composer create-project symfony/website-skeleton .
+composer require symfony/apache-pack
+composer require sonata-project/admin-bundle
+```
