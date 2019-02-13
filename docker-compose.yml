@@ -1,0 +1,10 @@
+version: "3"
+services:
+  web:
+    build: .
+    image: sonata-image
+    container_name: sonata
+    ports:
+      - 8001:80
+    volumes:
+      - /Users/fabian/projects/sonata/public:/var/www/html
