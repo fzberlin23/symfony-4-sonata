@@ -3,14 +3,17 @@
 
     use Doctrine\ORM\Mapping as ORM;
     use Gedmo\Timestampable\Traits\TimestampableEntity;
+    use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
     use Gedmo\Mapping\Annotation as Gedmo;
 
     /**
      * @ORM\Entity(repositoryClass="App\Repository\BlogPostRepository")
+     * @Gedmo\SoftDeleteable()
      */
     class BlogPost
     {
         use TimestampableEntity;
+        use SoftDeleteableEntity;
 
         /**
          * @ORM\Id

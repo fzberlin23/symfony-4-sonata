@@ -5,3 +5,13 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+            softdeleteable: true
+
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
