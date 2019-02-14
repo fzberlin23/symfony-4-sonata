@@ -8,6 +8,7 @@
     use Sonata\AdminBundle\Form\FormMapper;
     use Symfony\Component\Form\Extension\Core\Type\{TextType, TextareaType};
     use Sonata\AdminBundle\Form\Type\ModelType;
+    use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
     final class BlogPostAdmin extends AbstractAdmin
     {
@@ -29,14 +30,20 @@
 
         protected function configureDatagridFilters(DatagridMapper $datagridMapper)
         {
-            $datagridMapper->add('title');
-            $datagridMapper->add('body');
+            $datagridMapper
+                ->add('title')
+                ->add('category', null, [], EntityType::class, [
+                    'class' => Category::class,
+                    'choice_label' => 'name',
+                ]);
         }
 
         protected function configureListFields(ListMapper $listMapper)
         {
-            $listMapper->addIdentifier('title');
-            $listMapper->addIdentifier('body');
+            $listMapper
+                ->addIdentifier('title')
+                ->add('category.name')
+                ->add('draft');
         }
 
         public function toString($object)
