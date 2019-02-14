@@ -48,7 +48,7 @@
 
         public function toString($object)
         {
-            return $object instanceof BlogPost
+            return $object instanceof \App\Entity\BlogPost
                 ? $object->getTitle()
                 : 'Blog Post'; // shown in the breadcrumb on the create view
         }

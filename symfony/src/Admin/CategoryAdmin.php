@@ -26,4 +26,11 @@
             $listMapper->addIdentifier('name');
             $listMapper->addIdentifier('description');
         }
+
+        public function toString($object)
+        {
+            return $object instanceof \App\Entity\Category
+                ? $object->getName()
+                : 'Category'; // shown in the breadcrumb on the create view
+        }
     }
