@@ -33,6 +33,12 @@
          */
         private $blogPosts;
 
+        /**
+         * @ORM\Column(type="integer")
+         * @ORM\Version
+         */
+        private $version;
+
         public function __construct()
         {
             $this->blogPosts = new ArrayCollection();
@@ -57,6 +63,18 @@
 
         public function setDescription($description) {
             $this->description = $description;
+        }
+
+        public function getVersion(): ?int
+        {
+            return $this->version;
+        }
+
+        public function setVersion(int $version): self
+        {
+            $this->version = $version;
+
+            return $this;
         }
 
     }

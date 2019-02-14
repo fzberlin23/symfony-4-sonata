@@ -41,6 +41,12 @@
          */
         private $category;
 
+        /**
+         * @ORM\Column(type="integer")
+         * @ORM\Version
+         */
+        private $version;
+
         public function getTitle() {
             return $this->title;
         }
@@ -63,5 +69,17 @@
 
         public function setCategory($category) {
             $this->category = $category;
+        }
+
+        public function getVersion(): ?int
+        {
+            return $this->version;
+        }
+
+        public function setVersion(int $version): self
+        {
+            $this->version = $version;
+
+            return $this;
         }
     }

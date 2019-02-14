@@ -5,6 +5,8 @@ sonata_admin:
             - { type: sonata.admin.block.admin_list, position: left }
     global_search:
         empty_boxes: fade
+    options:
+        lock_protection: true
 
 sonata_block:
     blocks:
