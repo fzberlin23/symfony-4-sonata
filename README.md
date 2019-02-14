@@ -34,4 +34,5 @@ composer require sonata-project/admin-bundle
 composer require sonata-project/doctrine-orm-admin-bundle
 composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
+composer require stof/doctrine-extensions-bundle
 ```
