@@ -30,5 +30,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Category }
 
+    admin.blog_post:
+        class: App\Admin\BlogPostAdmin
+        arguments: [~, App\Entity\BlogPost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Blog post' }
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

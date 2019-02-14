@@ -1,14 +1,14 @@
 <?php
     namespace App\Repository;
 
-    use App\Entity\Product;
+    use App\Entity\BlogPost;
     use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
     use Symfony\Bridge\Doctrine\RegistryInterface;
 
-    class ProductRepository extends ServiceEntityRepository
+    class BlogPostRepository extends ServiceEntityRepository
     {
         public function __construct(RegistryInterface $registry)
         {
-            parent::__construct($registry, Product::class);
+            parent::__construct($registry, BlogPost::class);
         }
     }
