@@ -3,12 +3,16 @@
 
     use Doctrine\ORM\Mapping as ORM;
     use Doctrine\Common\Collections\ArrayCollection;
+    use Gedmo\Timestampable\Traits\TimestampableEntity;
+    use Gedmo\Mapping\Annotation as Gedmo;
 
     /**
      * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
      */
     class Category
     {
+        use TimestampableEntity;
+
         /**
          * @ORM\Id
          * @ORM\GeneratedValue
