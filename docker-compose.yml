@@ -1,4 +1,11 @@
 version: "3"
+
+volumes:
+  symfony_db:
+
+networks:
+  symfony:
+
 services:
   web:
     build:
@@ -9,10 +16,9 @@ services:
     ports:
       - 8001:80
     volumes:
-      - /Users/fabian/projects/symfony-4.2-sonata/symfony:/var/www/html:cached
+      - ./symfony:/var/www/html:cached
     networks:
       - symfony
-
   db:
     build:
       context: .
@@ -21,15 +27,9 @@ services:
     container_name: symfony4-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - symfony_db:/var/lib/mysql:cached
     ports:
       - 3311:3306
+    volumes:
+      - symfony_db:/var/lib/mysql:cached
     networks:
       - symfony
-
-volumes:
-  symfony_db:
-
-networks:
-  symfony:
