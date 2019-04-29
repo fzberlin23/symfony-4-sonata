@@ -18,11 +18,21 @@ docker + docker-compose
 
 ```
 git clone git@github.com:fzberlin23/symfony-4.2-sonata.git .
-Modify docker-compose.yml and set the "volumes" path appropriately
-docker-compose up -d
-docker exec -it symfony4-apache bash
-composer install
-Visit http://localhost:8001
+docker-compose -f docker-compose.yml -f docker-compose-oneshot.yml run --rm composer install
+
+```
+
+### Run the application
+
+```
+docker-compose up
+Visit http://localhost:8001 and http://localhost:8001/admin/dashboard
+```
+
+### Starting phpunit tests
+
+```
+docker-compose -f docker-compose.yml -f docker-compose-oneshot.yml run --rm phpunit
 ```
 
 ### Installing Symfony 4 + Sonata admin bundle from scratch
