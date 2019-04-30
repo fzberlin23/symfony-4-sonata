@@ -2,14 +2,14 @@ version: "3"
 
 services:
   composer:
-    image: symfony4-apache-image
+    image: symfony-42-sonata_web
     cap_drop: [all]
     working_dir: /var/www/html
     entrypoint: composer
     volumes:
       - ./symfony:/var/www/html:cached
   phpunit:
-    image: symfony4-apache-image
+    image: symfony-42-sonata_web
     cap_drop: [all]
     working_dir: /var/www/html
     entrypoint: ./bin/phpunit

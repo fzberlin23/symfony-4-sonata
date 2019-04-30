@@ -11,8 +11,8 @@ services:
     build:
       context: .
       dockerfile: docker/apache/Dockerfile
-    image: symfony4-apache-image
-    container_name: symfony4-apache
+    cap_drop: [all]
+    cap_add: [chown, setgid, setuid, dac_override, net_bind_service]
     ports:
       - 8001:80
     volumes:
@@ -20,11 +20,9 @@ services:
     networks:
       - symfony
   db:
-    build:
-      context: .
-      dockerfile: docker/mysql/Dockerfile
-    image: symfony4-mysql-image
-    container_name: symfony4-mysql
+    image: mysql:5.6
+    cap_drop: [all]
+    cap_add: [chown, setgid, setuid, dac_override]
     environment:
       - MYSQL_ROOT_PASSWORD=root
     ports:
