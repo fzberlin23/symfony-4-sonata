@@ -20,7 +20,7 @@ services:
     networks:
       - symfony
   db:
-    image: mysql:5.6
+    image: mysql:5.7
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, dac_override]
     environment:
