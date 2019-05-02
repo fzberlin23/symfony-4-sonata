@@ -8,9 +8,7 @@ networks:
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: docker/apache/Dockerfile
+    build: docker/apache
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, dac_override, net_bind_service]
     ports:
@@ -23,11 +21,11 @@ services:
     image: mysql:5.7
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, dac_override]
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
     ports:
       - 3311:3306
     volumes:
       - symfony_db:/var/lib/mysql:cached
     networks:
       - symfony
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
