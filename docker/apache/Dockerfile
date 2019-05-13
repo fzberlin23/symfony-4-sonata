@@ -1,8 +1,8 @@
-FROM php:7.2-apache
+FROM php:7.3-apache-stretch
 
 RUN apt-get update
 
-RUN apt-get install -y --no-install-recommends vim less git libcurl3-dev zlib1g-dev unzip
+RUN apt-get install -y --no-install-recommends vim less git libcurl3-dev libzip-dev unzip
 RUN docker-php-ext-install curl pdo_mysql mysqli zip
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem -subj "/C=AT/ST=Vienna/L=Vienna/O=Security/OU=Development/CN=example.com"
