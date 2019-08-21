@@ -17,8 +17,10 @@ git + docker + docker-compose
 ### Installing
 
 ```
-git clone git@github.com:fzberlin23/symfony-4.2-sonata.git
+git clone git@github.com:fzberlin23/symfony-4-sonata.git
 docker-compose -f docker-compose.yml -f docker-compose-oneshot.yml run --rm composer install
+docker-compose exec db mysql -proot -e 'create database symfony;'
+docker-compose exec web bin/console doctrine:schema:create
 ```
 
 ### Run the application
