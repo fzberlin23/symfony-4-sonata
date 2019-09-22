@@ -47,3 +47,9 @@ composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
 composer require stof/doctrine-extensions-bundle
 ```
+
+### Useful commands
+
+```
+docker-compose exec web bin/console cache:clear
+```
